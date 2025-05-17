@@ -1,0 +1,327 @@
+{
+  "Fav Thing": {
+    "version": "1.0",
+    "timestamp": "2025-03-27T20:46:43.419Z",
+    "agents": {},
+    "spreadsheet": {
+      "data": {
+        "A1": {
+          "value": "Your favorite thing"
+        },
+        "A2": {
+          "value": "AI's opinion"
+        },
+        "B1": {
+          "value": "Asparagus"
+        },
+        "B2": {
+          "formula": "=@prompt(\"Tell me about \"+B1+\" succinctly\")",
+          "value": "Asparagus is a perennial vegetable belonging to the Asparagaceae family. It is known for its tender shoots, which are harvested in spring. Rich in vitamins A, C, E, K, and folate, asparagus is low in calories and has beneficial antioxidant properties. It can be consumed cooked or raw and is popular in various cuisines worldwide. Asparagus is also prized for its unique, earthy flavor and is often roasted, steamed, or grilled. Additionally, it has been associated with various health benefits, including improved digestion and potential anti-inflammatory effects."
+        }
+      },
+      "numRows": 20,
+      "numCols": 10,
+      "columnWidths": {
+        "2": 564
+      }
+    }
+  },
+  "Compare 2": {
+    "version": "1.0",
+    "timestamp": "2024-03-14T00:00:00.000Z",
+    "agents": {
+      "generic": {
+        "model": "gpt-4.1-mini",
+        "systemPrompt": "You are a comparison expert who excels at analyzing similarities and differences between concepts. You provide numerical scores on a scale from 1 to 10 where specified."
+      }
+    },
+    "spreadsheet": {
+      "data": {
+        "A1": { "value": "Thing 1" },
+        "B1": { "value": "Thing 2" },
+        "A2": { "value": "Dog" },
+        "B2": { "value": "Pencil" },
+        "C1": { "value": "Compare (1=different, 10=same)" },
+        "C2": { "formula": "=@generic(\"On a scale of 1 (different) to 10 (same) compare \" + A2 + \" versus \" + B2 + \" and just give the score\")" }
+      },
+      "numRows": 20,
+      "numCols": 10,
+      "columnWidths": {}
+    }
+  },
+  "Mkt Analysis": {
+    "version": "1.0",
+    "timestamp": "2024-03-14T00:00:00.000Z",
+    "agents": {
+      "evan": {
+        "model": "gpt-4.1-mini",
+        "systemPrompt": "You are Evan, a market research expert who excels at analyzing trends, market dynamics, and competitive landscapes. You provide clear, concise, data-driven insights and actionable recommendations."
+      },
+      "evelyn": {
+        "model": "gpt-4.1-mini",
+        "systemPrompt": "You are Evelyn, a data visualization expert who specializes in transforming complex data into clear, meaningful visual insights. You excel at concisely suggesting the most effective ways to represent data and creating descriptive visualizations."
+      },
+      "amy": {
+        "model": "gpt-4.1-mini",
+        "systemPrompt": "You are Amy, an analytics expert who excels at interpreting data, identifying patterns, and drawing meaningful conclusions. You specialize in statistical analysis and providing clear, actionable insights."
+      },
+      "alice": {
+        "model": "gpt-4.1-mini",
+        "systemPrompt": "You are Alice, a data analysis expert who specializes in interpreting complex datasets and providing clear, actionable insights. You excel at expressing patterns you find and data-driven recommendations."
+      }
+    },
+    "spreadsheet": {
+      "data": {
+        "A1": { "value": "Company Name" },
+        "A2": { "value": "Apple Inc." },
+        "B1": { "value": "Market Analysis" },
+        "B2": { "formula": "=@evan(\"Analyze market position and trends for \" + A2)" },
+        "C1": { "value": "Visualization" },
+        "C2": { "formula": "=@evelyn(\"Create a visualization summary of \" + B2)" },
+        "D1": { "value": "Key Metrics" },
+        "D2": { "formula": "=@amy(\"Extract key metrics from \" + B2)" },
+        "E1": { "value": "Recommendations" },
+        "E2": { "formula": "=@alice(\"Generate recommendations based on \" + D2)" }
+      },
+      "numRows": 20,
+      "numCols": 10,
+      "columnWidths": {}
+    }
+  },
+  "Data Pipeline": {
+    "version": "1.0",
+    "timestamp": "2024-03-14T00:00:00.000Z",
+    "agents": {
+      "amy": {
+        "model": "gpt-4.1-mini",
+        "systemPrompt": "You are Amy, an analytics expert who excels at interpreting data and performing statistical analysis. You provide clear, data-driven insights."
+      },
+      "evelyn": {
+        "model": "gpt-4.1-mini",
+        "systemPrompt": "You are Evelyn, a data visualization expert who specializes in creating clear and meaningful visual representations of data and analysis."
+      },
+      "evan": {
+        "model": "gpt-4.1-mini",
+        "systemPrompt": "You are Evan, a business insights expert who excels at deriving meaningful business conclusions from data and analysis."
+      }
+    },
+    "spreadsheet": {
+      "data": {
+        "A1": { "value": "Input Data" },
+        "A2": { "formula": "=@file()" },
+        "B1": { "value": "Data Cleaning" },
+        "B2": { "formula": "=@prompt(A2,\"Clean and format the data\")" },
+        "C1": { "value": "Statistical Analysis" },
+        "C2": { "formula": "=@amy(\"Perform statistical analysis on \" + B2)" },
+        "D1": { "value": "Visualization" },
+        "D2": { "formula": "=@evelyn(\"Create visualizations for \" + C2)" },
+        "E1": { "value": "Insights" },
+        "E2": { "formula": "=@evan(\"Generate business insights from \" + D2)" }
+      },
+      "numRows": 20,
+      "numCols": 10,
+      "columnWidths": {}
+    }
+  },
+  "Agentic Smry": {
+    "version": "1.0",
+    "timestamp": "2024-03-14T00:00:00.000Z",
+    "agents": {
+      "evan": {
+        "model": "gpt-4.1-mini",
+        "systemPrompt": "You are Evan, an expert at analyzing and enhancing summaries while maintaining their core meaning."
+      }
+    },
+    "spreadsheet": {
+      "data": {
+        "A1": { "value": "Open a .txt or .md file" },
+        "A2": { "formula": "=@file()" },
+        "B1": { "value": "Summarize" },
+        "B2": { "formula": "=@prompt(A2,\"Summarize in 5 words\")" },
+        "C1": { "value": "Give to Evan agent" },
+        "C2": { "formula": "=@evan(B2)" },
+        "D1": { "value": "Haikuize" },
+        "D2": { "formula": "=@prompt(C2,\"Write as haiku\")" }
+      },
+      "numRows": 20,
+      "numCols": 10,
+      "columnWidths": {}
+    }
+  },
+  "Multi Output": {
+    "version": "1.0",
+    "timestamp": "2024-03-14T00:00:00.000Z",
+    "agents": {},
+    "spreadsheet": {
+      "data": {
+        "A1": { "value": "Two opposing ideas:" },
+        "B1": { "value": "Equality and excellence" },
+        "C1": { "formula": "=@prompt(B1,\"Convert to JSON as labelled values D1 and D2\")" },
+        "D1": { "formula": "=@prompt(C1,\"provide only the value of D1\")" },
+        "D2": { "formula": "=@prompt(C1,\"provide only the value of D2\")" },
+        "E1": { "formula": "=@prompt(D1,D2,\"Write a haiku inspired by...\")" }
+      },
+      "numRows": 20,
+      "numCols": 10,
+      "columnWidths": {}
+    }
+  },
+
+  "Multi Agent Chat": {
+    "version": "1.0",
+    "timestamp": "2025-04-02T14:40:21.015Z",
+    "agents": {
+      "copywriter": {
+        "model": "gpt-4.1-mini",
+        "systemPrompt": "You are a seasoned copywriter with 10 years of experience. Your responses are short and precise as feedback."
+      },
+      "artdirector": {
+        "model": "gpt-4.1-mini",
+        "systemPrompt": "You are a seasoned art director with 10 years of experience. Your responses are short and precise as feedback. When it is good enough to pass the needs of a naive client say \"PRINT IT!\" It's important to say PRINT IT! when the copy is good enough because you are very busy."
+      }
+    },
+    "spreadsheet": {
+      "data": {
+        "A1": {
+          "value": "The concept"
+        },
+        "B1": {
+          "value": "A hula hoop toy that helps you exercise daily"
+        },
+        "A2": {
+          "value": "The 1st pitch"
+        },
+        "B2": {
+          "formula": "=@copywriter(\"Write the tagline for \"+B1)",
+          "value": "\"Twirl Your Way to Fitness: Fun with Every Spin!\""
+        },
+        "A3": {
+          "value": "The 1st feedback"
+        },
+        "B3": {
+          "formula": "=@artdirector(\"For the concept '\"+B1+\"' give critical feedback (or approve it it is catchy enough with PRINT IT!) for the tagline \"+B2)",
+          "value": "The tagline is lively and creates a clear connection between fun and fitness. It's catchy and encourages engagement. \n\nPRINT IT!"
+        },
+        "A4": {
+          "value": "The 2nd pitch"
+        },
+        "B4": {
+          "formula": "=@copywriter(\"Use the feedback for tagline '\"+B2+\"' for the product '\"+B1+\"' and rewrite it again to respond to: '\"+B3+\"' with just the tagline\")",
+          "value": "\"Spin into Fitness: Fun with Every Twirl!\""
+        },
+        "A5": {
+          "value": "The 2nd feedback"
+        },
+        "B5": {
+          "formula": "=@artdirector(\"For the concept '\"+B1+\"' give critical feedback (or approve it it is catchy enough with PRINT IT!) for the tagline \"+B4)",
+          "value": "Catchy and conveys the fun aspect of the product effectively. I like the alliteration and the clear message. PRINT IT!"
+        },
+        "A6": {
+          "value": "The 3rd pitch"
+        },
+        "B6": {
+          "formula": "=@copywriter(\"Use the feedback for tagline '\"+B4+\"' for the product '\"+B1+\"' and rewrite it again to respond to: '\"+B5+\"' with just the tagline\")",
+          "value": "\"Twirl Your Way to Fitness: Fun with Every Spin!\""
+        },
+        "B8": {
+          "formula": "=@copywriter(\"Use the feedback for tagline '\"+B6+\"' for the product '\"+B1+\"' and rewrite it again to respond to: '\"+B7+\"' with just the tagline\")",
+          "value": "\"Hoop Your Way to Fit: Spin into Fun Every Day!\""
+        },
+        "A7": {
+          "value": "The 3rd feedback"
+        },
+        "B7": {
+          "formula": "=@artdirector(\"For the concept '\"+B1+\"' give critical feedback (or approve it it is catchy enough with PRINT IT!) for the tagline \"+B6)",
+          "value": "The tagline is lively and creates a clear connection between fun and fitness. It's catchy and encourages engagement. \n\nPRINT IT!"
+        },
+        "A8": {
+          "value": "The 4th pitch"
+        },
+        "A9": {
+          "value": "The 4th feedback"
+        },
+        "B9": {
+          "formula": "=@artdirector(\"For the concept '\"+B1+\"' give critical feedback (or approve it it is catchy enough with PRINT IT!) for the tagline \"+B8)",
+          "value": "Catchy and conveys both fun and fitness well. The play on words is engaging. PRINT IT!"
+        },
+        "A10": {
+          "value": "The 5th pitch"
+        },
+        "B10": {
+          "formula": "=@copywriter(\"Use the feedback for tagline '\"+B8+\"' for the product '\"+B1+\"' and rewrite it again to respond to: '\"+B9+\"' with just the tagline\")",
+          "value": "\"Hoop into Fitness: Fun Spins Every Day!\""
+        },
+        "A11": {
+          "value": "The 5th feedback"
+        },
+        "B11": {
+          "formula": "=@artdirector(\"For the concept '\"+B1+\"' give critical feedback (or approve it it is catchy enough with PRINT IT!) for the tagline \"+B9)",
+          "value": "PRINT IT!"
+        }
+      },
+      "numRows": 20,
+      "numCols": 10,
+      "columnWidths": {
+        "2": 965
+      }
+    }
+  },
+  "Agent Evals": {
+    "version": "1.0",
+    "timestamp": "2025-04-02T19:57:10.129Z",
+    "agents": {},
+    "spreadsheet": {
+      "data": {
+        "A1": {
+          "value": "Question"
+        },
+        "B1": {},
+        "B2": {
+          "formula": "=@prompt(B1)"
+        },
+        "A2": {
+          "value": "Response"
+        },
+        "A3": {
+          "value": "Customer Service FAQ"
+        },
+        "B3": {
+          "value": "### Customer Service FAQ  1. **Q: What are your business hours?**      **A:** Mon–Fri, 9 AM–6 PM.  2. **Q: How can I track my order?**      **A:** Use the link in your email or log in to your account.  3. **Q: What is your return policy?**      **A:** 30-day return if unused and in original packaging.  4. **Q: Do you offer international shipping?**      **A:** Yes, rates and times vary by country.  5. **Q: How do I contact customer support?**      **A:** Email support@example.com or call (123) 456-7890.  6. **Q: Can I change or cancel my order?**      **A:** Yes, within 2 hours of ordering."
+        },
+        "B4": {
+          "formula": "=@prompt(\"Evaluate if the response: '\" + B2 + \"' to the question: '\"+B1+\"' is directly related to and factually grounded in the information: {{ \"+B3+\"}} Respond only with the 5-star rating (e.g., ⭐️ = LOW,⭐️⭐️,⭐️⭐️⭐️, ⭐️⭐️⭐️⭐️, ⭐️⭐️⭐️⭐️⭐️ = HIGH).\")"
+        },
+        "A4": {
+          "value": "- Evaluation of Groundedness To File"
+        },
+        "A5": {
+          "value": "- Rationale for Evaluation"
+        },
+        "B5": {
+          "formula": "=@prompt(\"Evaluate if the response: '\" + B2 + \"' to the question: '\"+B1+\"' is directly related to and factually grounded in the information: {{ \"+B3+\"}} Respond with the 5-star rating (e.g., ⭐️ = LOW,⭐️⭐️,⭐️⭐️⭐️, ⭐️⭐️⭐️⭐️, ⭐️⭐️⭐️⭐️⭐️ = HIGH) and explain why.\")"
+        },
+        "A6": {
+          "value": "COMPARE THAT WITH:"
+        },
+        "A7": {
+          "value": "- Grounded Response With FAQ"
+        },
+        "B7": {
+          "formula": "=@prompt(\"With this FAQ: '\"+B3+\"' answer the question succinctly: \"+B1)"
+        },
+        "B8": {
+          "formula": "=@prompt(\"Evaluate if the response: '\" + B7 + \"' to the question: '\"+B1+\"' is directly related to and factually grounded in the information: {{ \"+B3+\"}} Respond only with the 5-star rating (e.g., ⭐️ = LOW,⭐️⭐️,⭐️⭐️⭐️, ⭐️⭐️⭐️⭐️, ⭐️⭐️⭐️⭐️⭐️ = HIGH).\")"
+        },
+        "A8": {
+          "value": "- Evaluation of Groundedness To FAQ"
+        }
+      },
+      "numRows": 20,
+      "numCols": 10,
+      "columnWidths": {
+        "1": 290,
+        "2": 522
+      }
+    }
+  }
+} 
