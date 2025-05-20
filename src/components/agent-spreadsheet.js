@@ -1619,6 +1619,34 @@ export class AgentSpreadsheet extends LitElement {
       color: #8ab4f8;
       font-size: 12px;
     }
+
+    /* Demo banner styles */
+    .demo-banner {
+      position: fixed;
+      left: 50%;
+      bottom: 40px;
+      width: 60vw;
+      max-width: 900px;
+      min-width: 300px;
+      padding: 12px 0;
+      background: rgba(91, 91, 91, 0.5);
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      z-index: 9999;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      pointer-events: none;
+      text-align: center;
+      transform: translateX(-50%);
+      border-radius: 4px;
+    }
+
+    .demo-banner::before {
+      content: "🦄 vibe-coded demo demo demo demo demo demo";
+    }
   `;
 
   getCellId(row, col) {
@@ -2866,7 +2894,7 @@ getAllDependencies(formula) {
                 <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
                 <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
               </svg>
-              <h4><span style="color:rgb(2, 162, 249);">Azure AI Foundry</span><span style="color: grey;">-Powered ...</span> Cozy AI Calculator (🦄 Vibe-Coded)</h4>
+              <h4><span style="color:rgb(2, 162, 249);">Azure AI Foundry</span><span style="color: grey;"> Demo | </span> Cozy AI Kitchen 🎂 Calculator</h4>
             </div>
             <div class="toolbar-right-items">
               <button class="show-agents-button" @click=${this.toggleAgentsModal}>
@@ -2899,10 +2927,11 @@ getAllDependencies(formula) {
             />
           </div>
 
-          ${this.renderAgentsModal()} 
+          ${this.renderAgentsModal()}
           ${this.renderSpreadsheetGrid()}
           ${this.renderGenAIPromptModal()}
-          ${this.renderApiKeysModal()} <!-- Add the new modal render call -->
+          ${this.renderApiKeysModal()}
+          <div class="demo-banner"></div>
         </div>
 
         ${this.renderDevTools()}
